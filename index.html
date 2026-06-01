@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ONG Vida Plena — Painel de Gestão</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="header-inner">
+        <div class="header-text">
+          <h1>ONG Vida Plena</h1>
+          <p>Painel de Gestão de Beneficiários e Eventos</p>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- Summary Cards -->
+      <section class="cards">
+        <div class="card">
+          <span class="card-icon">👥</span>
+          <div class="card-info">
+            <span class="card-value" id="total-beneficiarios">—</span>
+            <span class="card-label">Beneficiários</span>
+          </div>
+        </div>
+        <div class="card">
+          <span class="card-icon">📅</span>
+          <div class="card-info">
+            <span class="card-value" id="total-eventos">—</span>
+            <span class="card-label">Eventos Cadastrados</span>
+          </div>
+        </div>
+        <div class="card">
+          <span class="card-icon">📋</span>
+          <div class="card-info">
+            <span class="card-value" id="total-inscricoes">—</span>
+            <span class="card-label">Inscrições Realizadas</span>
+          </div>
+        </div>
+      </section>
+
+      <div class="content-grid">
+        <!-- Upcoming Events -->
+        <section class="panel">
+          <h2>Próximos Eventos</h2>
+          <div id="eventos-list" class="list-container">
+            <p class="placeholder">Carregando eventos...</p>
+          </div>
+        </section>
+
+        <!-- Recent Registrations -->
+        <section class="panel">
+          <h2>Inscrições Recentes</h2>
+          <div id="inscricoes-list" class="list-container">
+            <p class="placeholder">Carregando inscrições...</p>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer>
+      <p>ONG Vida Plena &copy; 2025 — Sistema de Gestão</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
