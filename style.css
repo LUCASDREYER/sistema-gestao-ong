@@ -206,6 +206,63 @@ main {
   color: #991b1b;
 }
 
+/* ── Document Link Buttons ── */
+.doc-links {
+  max-width: 1100px;
+  margin: 0 auto 32px;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.doc-btn {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 24px;
+  background: var(--white);
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  text-decoration: none;
+  color: var(--text);
+  box-shadow: var(--shadow);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.doc-btn:hover {
+  border-color: var(--green);
+  box-shadow: 0 4px 16px rgba(45,122,79,.15);
+}
+
+.doc-btn-icon {
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.doc-btn-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.doc-btn-title {
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--green-dark);
+}
+
+.doc-btn-sub {
+  font-size: 0.82rem;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+@media (max-width: 768px) {
+  .doc-links {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* ── Footer ── */
 footer {
   text-align: center;
