@@ -43,8 +43,13 @@
       <section>
         <h2>3. Integração com a API do Airtable</h2>
         <p>
-          <!-- Explique como a integração via API foi feita. -->
-          [Preencher: descrição da integração via Airtable REST API e JavaScript]
+       <p>
+  A integração entre o Airtable e o GitHub Pages foi feita por meio da API REST do Airtable. O site publicado no GitHub Pages funciona como a interface visual do sistema, enquanto o Airtable funciona como o banco de dados. Quando a página é aberta, o arquivo JavaScript faz requisições para a API do Airtable usando o Base ID e um token de acesso, buscando os dados das tabelas Beneficiários, Eventos e Inscrições.
+</p>
+
+<p>
+  Depois que os dados são recebidos em formato JSON, o JavaScript atualiza automaticamente os cards do painel, a lista de próximos eventos e as inscrições recentes. Dessa forma, o conteúdo exibido no site não é fixo no HTML: ele vem diretamente da base criada no Airtable.
+</p>
         </p>
         <!-- Adicionar prints da integração aqui -->
       </section>
