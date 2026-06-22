@@ -1,2 +1,9 @@
-CLAUDE.md
+# Ignore all Markdown files except README
+*.md
+!README.md
+
+# Local Claude config
 .claude/
+
+# macOS
+.DS_Store
