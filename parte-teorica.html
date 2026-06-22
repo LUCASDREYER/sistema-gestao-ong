@@ -22,25 +22,23 @@
       <section>
         <h2>1. Levantamento de Requisitos</h2>
         <p>
-          <p>
-O levantamento de requisitos da ONG Vida Plena foi feito a partir da análise das principais dificuldades que uma organização social teria no controle de seus atendimentos e eventos. A ideia foi pensar em um cenário realista, onde a ONG precisa organizar informações de beneficiários, eventos realizados e inscrições, mas muitas vezes acaba usando planilhas separadas, mensagens de WhatsApp ou anotações manuais.
-</p>
-
-<p>
-A partir disso, identifiquei que o sistema precisava registrar os beneficiários atendidos pela ONG, cadastrar eventos e atividades sociais, e controlar quem se inscreveu ou participou de cada evento. Também foi necessário pensar em informações básicas como nome, contato, status da inscrição, data do evento e relação entre beneficiário e evento.
-</p>
-
-<p>
-Com esse levantamento, ficou claro que o banco visual deveria ser simples de usar, mas organizado o suficiente para evitar dados duplicados e facilitar a consulta das informações. Por isso, os requisitos principais foram: permitir o cadastro de beneficiários, o cadastro de eventos, o controle de inscrições e a visualização rápida dos dados em um painel.
-</p>
+          O levantamento de requisitos da ONG Vida Plena foi feito a partir da análise das principais dificuldades que uma organização social teria no controle de seus atendimentos e eventos. A ideia foi pensar em um cenário realista, onde a ONG precisa organizar informações de beneficiários, eventos realizados e inscrições, mas muitas vezes acaba usando planilhas separadas, mensagens de WhatsApp ou anotações manuais.
+        </p>
+        <p>
+          A partir disso, identifiquei que o sistema precisava registrar os beneficiários atendidos pela ONG, cadastrar eventos e atividades sociais, e controlar quem se inscreveu ou participou de cada evento. Também foi necessário pensar em informações básicas como nome, contato, status da inscrição, data do evento e relação entre beneficiário e evento.
+        </p>
+        <p>
+          Com esse levantamento, ficou claro que o banco visual deveria ser simples de usar, mas organizado o suficiente para evitar dados duplicados e facilitar a consulta das informações. Por isso, os requisitos principais foram: permitir o cadastro de beneficiários, o cadastro de eventos, o controle de inscrições e a visualização rápida dos dados em um painel.
         </p>
       </section>
 
       <section>
         <h2>2. Modelagem do Banco de Dados Visual</h2>
         <p>
-          <!-- Explique o raciocínio por trás das decisões de modelagem. -->
-          [Preencher: raciocínio por trás da modelagem do banco visual]
+          Depois de entender os requisitos, comecei a pensar em como separar essas informações de um jeito que fizesse sentido. Em vez de jogar tudo dentro de uma única planilha, decidi dividir os dados em três tabelas, cada uma com uma função bem clara: uma para guardar os beneficiários atendidos, outra para os eventos que a ONG realiza e uma terceira para registrar as inscrições, que é onde as duas primeiras se encontram.
+        </p>
+        <p>
+          Fiz essa divisão justamente para evitar a repetição de dados. Assim o mesmo beneficiário pode se inscrever em vários eventos sem precisar ter o nome dele cadastrado de novo a cada vez, e qualquer alteração no cadastro de uma pessoa vale para todas as inscrições dela. Isso deixa o banco mais organizado e diminui a chance de erro ou de informação duplicada, que era um dos problemas do controle manual.
         </p>
 
         <h3>Entidades e Atributos</h3>
@@ -69,24 +67,30 @@ Com esse levantamento, ficou claro que o banco visual deveria ser simples de usa
 
         <h3>Relacionamentos</h3>
         <p>
-          <!-- Descreva as relações entre as tabelas. -->
-          [Preencher: descrição dos relacionamentos entre as entidades]
+          O relacionamento principal acontece entre Beneficiários e Eventos, e ele é de muitos para muitos: um beneficiário pode participar de vários eventos e um evento pode ter vários beneficiários inscritos. Como esse tipo de relação não dá para ligar duas tabelas diretamente, usei a tabela de Inscrições como uma tabela intermediária entre elas.
+        </p>
+        <p>
+          Na prática, cada linha de Inscrições aponta para um beneficiário e para um evento, além de guardar as informações daquela participação específica, como a data da inscrição, o status (Confirmada, Pendente ou Cancelada) e a presença. Foi assim que consegui representar quem se inscreveu em cada atividade sem misturar os dados das pessoas com os dados dos eventos.
         </p>
       </section>
 
       <section>
         <h2>3. Justificativa da Ferramenta — Airtable</h2>
         <p>
-          <!-- Justifique por que o Airtable foi escolhido. -->
-          [Preencher: justificativas para a escolha do Airtable como banco de dados visual]
+          Escolhi o Airtable porque ele junta a facilidade de uma planilha com a organização de um banco de dados de verdade. Para uma ONG que hoje usa planilhas soltas e grupos de WhatsApp, isso faz diferença, porque a equipe não precisa saber programar para cadastrar ou consultar as informações. A interface é visual e bem parecida com o Excel, que a maioria das pessoas já está acostumada a usar.
+        </p>
+        <p>
+          Além disso, o Airtable deixa criar relações entre as tabelas, já tem uma API pronta para integrar com o site e oferece um plano gratuito que dá conta de um projeto desse tamanho. Por ser uma ferramenta no-code, ela deixa a parte de banco de dados acessível para qualquer pessoa da ONG, e não só para quem tem conhecimento técnico, que era exatamente um dos objetivos da solução.
         </p>
       </section>
 
       <section>
         <h2>4. Ética e Segurança da Informação</h2>
         <p>
-          <!-- Aborde: LGPD, exposição da chave de API, acesso aos dados, etc. -->
-          [Preencher: considerações sobre ética e segurança da informação no projeto]
+          Como o sistema lida com dados pessoais dos beneficiários, como nome, telefone e e-mail, é importante ter cuidado com a forma como essas informações são guardadas e quem tem acesso a elas. Pensando na LGPD (Lei Geral de Proteção de Dados), esses dados só deveriam ser usados para a finalidade da ONG, e o acesso à base precisa ser controlado, deixando apenas pessoas autorizadas com permissão para ver ou editar as tabelas.
+        </p>
+        <p>
+          Um ponto que merece atenção neste projeto é que o token de acesso à API do Airtable fica visível no código JavaScript, já que o site é estático e publicado no GitHub Pages. Para um trabalho acadêmico isso é aceitável, mas em um sistema real essa chave não deveria ficar exposta, porque qualquer pessoa poderia usá-la para acessar a base. O ideal, num cenário de produção, seria esconder essa chave em um servidor (backend) ou usar um token só de leitura e com permissões limitadas. Por isso, na base usada aqui eu coloquei apenas dados fictícios de teste, sem informações reais de pessoas.
         </p>
       </section>
 

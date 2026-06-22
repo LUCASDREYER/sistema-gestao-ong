@@ -22,8 +22,10 @@
       <section>
         <h2>1. Base de Dados no Airtable</h2>
         <p>
-          <!-- Descreva a construção da base de dados e mostre prints das tabelas. -->
-          [Preencher: descrição da base de dados criada no Airtable com as três tabelas]
+          A base de dados foi criada no Airtable e é formada por três tabelas que conversam entre si: Beneficiários, Eventos e Inscrições. Na tabela de Beneficiários ficam os dados das pessoas atendidas pela ONG, como nome, idade, telefone, e-mail, região e situação (ativo ou inativo). Na de Eventos ficam as atividades realizadas, com nome, data, tipo, local, capacidade máxima e status.
+        </p>
+        <p>
+          Já a tabela de Inscrições é a que liga as duas anteriores, registrando qual beneficiário se inscreveu em qual evento, junto com a data da inscrição, o status e a presença. Montei tudo direto pela interface visual do Airtable, criando os campos e escolhendo o tipo de cada um, e liguei as tabelas usando os campos de relação.
         </p>
         <!-- Adicionar prints das tabelas aqui -->
       </section>
@@ -31,8 +33,10 @@
       <section>
         <h2>2. Dashboard</h2>
         <p>
-          <!-- Descreva o dashboard criado e mostre o link ou prints do funcionamento. -->
-          [Preencher: descrição do painel de gestão e evidências de funcionamento]
+          O dashboard é a parte que a ONG enxerga no dia a dia. Ele foi feito em HTML, CSS e JavaScript e mostra de forma rápida os números mais importantes: o total de beneficiários, a quantidade de eventos cadastrados e o total de inscrições. Logo abaixo, ele lista os próximos eventos com data, tipo e local, e também as inscrições mais recentes, mostrando o nome do beneficiário, o evento e o status de cada uma.
+        </p>
+        <p>
+          A ideia foi deixar a tela simples e direta, para que qualquer pessoa da equipe consiga entender a situação geral só de bater o olho, sem precisar abrir o Airtable. Todos esses dados vêm direto da base e são carregados automaticamente quando a página abre.
         </p>
         <p>
           Link público: <a href="index.html">Acessar o painel →</a>
@@ -43,23 +47,30 @@
       <section>
         <h2>3. Integração com a API do Airtable</h2>
         <p>
-       <p>
-  A integração entre o Airtable e o GitHub Pages foi feita por meio da API REST do Airtable. O site publicado no GitHub Pages funciona como a interface visual do sistema, enquanto o Airtable funciona como o banco de dados. Quando a página é aberta, o arquivo JavaScript faz requisições para a API do Airtable usando o Base ID e um token de acesso, buscando os dados das tabelas Beneficiários, Eventos e Inscrições.
-</p>
-
-<p>
-  Depois que os dados são recebidos em formato JSON, o JavaScript atualiza automaticamente os cards do painel, a lista de próximos eventos e as inscrições recentes. Dessa forma, o conteúdo exibido no site não é fixo no HTML: ele vem diretamente da base criada no Airtable.
-</p>
+          A integração entre o Airtable e o GitHub Pages foi feita por meio da API REST do Airtable. O site publicado no GitHub Pages funciona como a interface visual do sistema, enquanto o Airtable funciona como o banco de dados. Quando a página é aberta, o arquivo JavaScript faz requisições para a API do Airtable usando o Base ID e um token de acesso, buscando os dados das tabelas Beneficiários, Eventos e Inscrições.
         </p>
+        <p>
+          Depois que os dados são recebidos em formato JSON, o JavaScript atualiza automaticamente os cards do painel, a lista de próximos eventos e as inscrições recentes. Dessa forma, o conteúdo exibido no site não é fixo no HTML, ele vem diretamente da base criada no Airtable.
+        </p>
+        <figure>
+          <img src="Imagens /IntegraçãoAPIAirtable.png" alt="Integração API Airtable" />
+          <figcaption>Print: integração via API do Airtable</figcaption>
+        </figure>
         <!-- Adicionar prints da integração aqui -->
       </section>
 
       <section>
         <h2>4. Dados de Teste</h2>
         <p>
-          <!-- Demonstre que o sistema funciona com dados reais de teste. -->
-          [Preencher: evidências do sistema funcionando com dados reais de teste]
+          Demonstração com imagens e prints usados como dados de teste.
         </p>
+        <div class="test-images">
+          <figure>
+            <img src="Imagens /dadosdeteste.png" alt="Dados de teste — tabela" />
+            <figcaption>Print: dados de teste na base Airtable</figcaption>
+          </figure>
+        
+        </div>
         <!-- Adicionar prints dos dados de teste aqui -->
       </section>
 
