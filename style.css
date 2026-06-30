@@ -235,6 +235,10 @@ main {
   box-shadow: 0 4px 16px rgba(45,122,79,.15);
 }
 
+.doc-btn-full {
+  grid-column: 1 / -1;
+}
+
 .doc-btn-icon {
   font-size: 2rem;
   line-height: 1;
